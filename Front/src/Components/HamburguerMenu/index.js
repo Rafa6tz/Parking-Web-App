@@ -9,7 +9,7 @@ const abrirMenu = () => setAberto(!aberto)
 
   return (
     <div className='relative block sm:hidden'> 
-      <button className='p-4' onClick={abrirMenu}>{aberto ? <AiOutlineClose size={32} /> : <AiOutlineMenu size={32} />}</button>
+      <button className='p-4 fixed' onClick={abrirMenu}>{aberto ? <AiOutlineClose size={32} /> : <AiOutlineMenu size={32} />}</button>
     
     <div className={`p-4 fixed h-full top-0 left-0 bg-slate-300 w-64 shadow-inner transform transition-transform ease-in ${aberto ? 'translate-x-0' : '-translate-x-full'}`}>
     <div className='flex justify-start'>

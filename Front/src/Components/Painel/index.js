@@ -4,7 +4,7 @@ const Painel = ({ users }) => {
   return (
     <div className='flex justify-center'>
       <div className='w-4/5 flex justify-center rounded-xl bg-white'>
-        <table className='w-full h-56 my-4 bg-white border-collapse'>
+        <table className='w-4/5 h-56 my-4 bg-white border-collapse'>
           <thead>
             <tr>
               <th className='p-4 border-b border-gray-300 text-center'>Nome</th>

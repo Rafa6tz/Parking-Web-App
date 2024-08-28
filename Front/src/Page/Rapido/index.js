@@ -20,13 +20,13 @@ const Rapido = () => {
   }, []); // Dependência vazia para executar uma vez após a montagem
 
   return (
-    <>
+    <div className='md:pt-24'>
       <div className='flex flex-col items-center justify-center m-auto md:h-52'>
         <p className='m-4 text-3xl font-bold'>Cadastro Rápido</p>
         <Formulario />
       </div>
       <Painel users={users} />
-    </>
+    </div>
   );
 };
 
