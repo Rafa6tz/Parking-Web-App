@@ -4,6 +4,7 @@ import Rapido from "./Page/Rapido";
 import Mensalistas from "./Page/Mensalistas";
 import Historico from "./Page/Historico";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./styles.css"
 
 function App() {
   return (
