@@ -23,9 +23,8 @@ const Nav = () => {
         <span className='px-2 text-xl font-bold text-slate-100'>Mateus</span>
       </div>
       <div
-        className={`fixed p-4 h-32 top-16 right-0 bg-slate-300 w-64 shadow-inner transform transition-transform ease-in-out duration-300 ${acc ? 'translate-y-0' : '-translate-y-40'}`}
+        className={`fixed p-4 h-32 top-16 right-2 bg-slate-300 rounded-2xl w-64 shadow-inner transform transition-transform ease-in-out duration-300 ${acc ? 'translate-y-5' : '-translate-y-60'}`}
       >
-        {/* Conteúdo da última div */}
       </div>
     </nav>
   );
