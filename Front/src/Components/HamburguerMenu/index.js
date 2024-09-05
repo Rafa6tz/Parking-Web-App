@@ -19,9 +19,9 @@ const abrirMenu = () => setAberto(!aberto)
         <NavLink onClick={abrirMenu} to="/" className='py-4 font-bold transition duration-150 ease-in cursor-pointer hover:text-slate-100 hover:text-2xl'>Cadastro Rápido</NavLink>
         <NavLink onClick={abrirMenu} to="Mensalistas" className='py-4 font-bold transition duration-150 ease-in cursor-pointer hover:text-slate-100 hover:text-2xl'>Cadastro Mensalistas</NavLink>
         <NavLink onClick={abrirMenu} to="Historico" className='py-4 font-bold transition duration-150 ease-in cursor-pointer hover:text-slate-100 hover:text-2xl'>Histórico</NavLink>
+        <div className='bottom-2'><p>teste</p></div>
         </div>
     </div>
-    
     </div>
   )
 }

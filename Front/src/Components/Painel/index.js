@@ -1,9 +1,31 @@
+import axios from 'axios';
 import React from 'react';
+import { FaPen, FaTrash, FaReceipt } from 'react-icons/fa'
 
-const Painel = ({ users }) => {
+
+const Painel = ({ users, setUsers, setOnEdit }) => {
+  const handleEdit = (item) => {
+    setOnEdit(item)
+  }
+
+
+  const handleDelete = async (id) => {
+    await axios
+    .delete("http://localhost:8800/" + id)
+    .then(({data}) => {
+      const newArray = users.filter((user) => user.id !== id)
+
+      setUsers(newArray)
+      console.log(data)
+    })
+    .catch(({data}) => console.log(data))
+
+    setOnEdit(null)
+  }
+
   return (
     <div className='flex justify-center'>
-      <div className='w-4/5 flex justify-center rounded-xl bg-white'>
+      <div className='w-4/5 flex justify-center rounded-xl bg-white shadow-2xl'>
         <table className='w-4/5 h-56 my-4 bg-white border-collapse'>
           <thead>
             <tr>
@@ -18,6 +40,11 @@ const Painel = ({ users }) => {
                 <td className='p-4 text-center'>{item.nome}</td>
                 <td className='p-4 hidden text-center md:table-cell'>{item.telefone}</td>
                 <td className='p-4 text-center'>{item.placa}</td>
+                <div className='h-full flex flex-row justify-around w-full items-center'>
+                <FaPen className='cursor-pointer mx-1' onClick={() => handleEdit(item)} />
+                <FaReceipt className='cursor-pointer mx-1' />
+                <FaTrash className='cursor-pointer mx-1 text-red-700' onClick={() => handleDelete(item.id)}/>
+                </div>
               </tr>
             ))}
           </tbody>
