@@ -29,7 +29,7 @@ export const addUser = (req, res) => {
 
 export const updateUser = (req, res) => {
     const q =
-    "UPDATE rapido set `nome` = ?, `telefone` = ?, `placa` = ? WHERE `id`= ?";
+    "UPDATE rapido SET `nome` = ?, `telefone` = ?, `placa` = ? WHERE `id`= ?";
 
     const values = [
         req.body.nome,

@@ -11,7 +11,7 @@ const abrirMenu = () => setAberto(!aberto)
     <div className='relative block sm:hidden'> 
       <button className='p-4 fixed' onClick={abrirMenu}>{aberto ? <AiOutlineClose size={32} /> : <AiOutlineMenu size={32} />}</button>
     
-    <div className={`p-4 fixed h-full top-0 left-0 bg-slate-300 w-64 shadow-inner transform transition-transform ease-in ${aberto ? 'translate-x-0' : '-translate-x-full'}`}>
+    <div className={`p-4 fixed h-screen top-0 left-0 bg-slate-300 w-64 shadow-inner transform transition-transform ease-in ${aberto ? 'translate-x-0' : '-translate-x-full'}`}>
     <div className='flex justify-start'>
     <button onClick={abrirMenu}><AiOutlineClose size={32} /> </button>
     </div>
@@ -19,8 +19,8 @@ const abrirMenu = () => setAberto(!aberto)
         <NavLink onClick={abrirMenu} to="/" className='py-4 font-bold transition duration-150 ease-in cursor-pointer hover:text-slate-100 hover:text-2xl'>Cadastro Rápido</NavLink>
         <NavLink onClick={abrirMenu} to="Mensalistas" className='py-4 font-bold transition duration-150 ease-in cursor-pointer hover:text-slate-100 hover:text-2xl'>Cadastro Mensalistas</NavLink>
         <NavLink onClick={abrirMenu} to="Historico" className='py-4 font-bold transition duration-150 ease-in cursor-pointer hover:text-slate-100 hover:text-2xl'>Histórico</NavLink>
-        <div className='bottom-2'><p>teste</p></div>
-        </div>
+    </div>
+    <div className='bottom-2 h-2/4 flex items-end'><p className='b-'>teste</p></div>
     </div>
     </div>
   )

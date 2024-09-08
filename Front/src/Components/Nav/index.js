@@ -6,7 +6,7 @@ const Nav = () => {
   const openAcc = () => setAcc(!acc);
 
   return (
-    <nav className='justify-between hidden p-2 shadow-sm shadow-black md:flex bg-sky-700 md:fixed md:w-full'>
+    <nav className='justify-between hidden p-2 shadow-2xl md:flex bg-sky-700 md:fixed md:w-full'>
       <div className='flex justify-around flex-1 p-4 text-xl'>
         <NavLink to="/" className='font-bold transition duration-150 ease-in cursor-pointer text-slate-100 hover:text-2xl hover:text-sky-300'>
           Cadastro Rápido
