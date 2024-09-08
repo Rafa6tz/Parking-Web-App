@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { FaPen, FaTrash, FaReceipt, FaTicketAlt } from 'react-icons/fa'
 
 
@@ -7,6 +7,13 @@ const Painel = ({ users, setUsers, setOnEdit }) => {
   const handleEdit = (item) => {
     setOnEdit(item)
   }
+
+  
+  const [mobmodal, setMobmodal ] = useState(false)
+  const [selectedItem, setSelectedItem] = useState(null)
+  const openMobmodal = (item) => { 
+    setSelectedItem(item)
+    setMobmodal(!mobmodal)}
 
 
   const handleDelete = async (id) => {
@@ -46,14 +53,37 @@ const Painel = ({ users, setUsers, setOnEdit }) => {
                 <FaTrash className='cursor-pointer mx-1 text-red-700' onClick={() => handleDelete(item.id)}/>
                 </div>
                 <div className='h-full flex-row justify-around w-full items-center md:hidden flex'>
-                <FaTicketAlt className='cursor-pointer' />
+                <FaTicketAlt onClick={() => openMobmodal(item)} className='cursor-pointer' />
                 </div>
               </tr>
+              
              ))}
+             
           </tbody>
           </table>
-
-      </div>
+          </div>
+          {mobmodal && (<div className={`${mobmodal ? 'block' : 'hidden'}`}> 
+                 {selectedItem && (
+                  <div className='w-screen h-screen absolute top-0 left-0 z-10 flex justify-center items-center'>
+                    <div className='z-10 w-11/12 absolute h-56 flex flex-col items-center justify-around bg-white'>
+                    <div className='flex justify-center items-center' onClick={() => {handleEdit(selectedItem); openMobmodal(false)}} > 
+                    <FaPen className='cursor-pointer mx-2'/>
+                    <p>EDITAR</p>
+                    </div>
+                    <div className='flex justify-center items-center'> 
+                    <FaReceipt className='cursor-pointer mx-1' />
+                    <p>PAGAR</p>
+                    </div>
+                    <div className='flex justify-center items-center' onClick={() => {handleDelete(selectedItem.id); openMobmodal(false)}}> 
+                    <FaTrash className='cursor-pointer mx-1 text-red-700' />
+                    <p>DELETAR</p>
+                    </div>
+                    
+                    </div>
+                    <div onClick={openMobmodal} className='h-screen w-screen left-0 top-0'></div>
+                    </div>
+                  )} 
+                  </div>)}
     </div>
   );
 };
