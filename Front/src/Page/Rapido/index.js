@@ -9,7 +9,7 @@ const Rapido = () => {
 
   const getUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:8800");
+      const res = await axios.get("http://localhost:8800/rapido");
       setUsers(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
     } catch (error) {
       console.error("Erro ao buscar usuários:", error); 

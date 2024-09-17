@@ -55,3 +55,63 @@ export const deleteUser = (req, res) => {
         return res.status(200).json("Deletado")
     })
 }
+
+
+// Mensalistas
+export const getUsersm = (_, res) => {
+    const q = "SELECT * FROM mensalista";
+
+    db.query(q, (err, data) =>{
+        if(err) return res.json(err);
+
+        return res.status(200).json(data);
+    })
+}
+
+export const addUserm = (req, res) => {
+    const q =
+    "INSERT INTO mensalista(`nome`, `telefone`, `cpf`, `placa`) VALUES(?)";
+
+    const values = [
+        req.body.nome,
+        req.body.telefone,
+        req.body.cpf,
+        req.body.placa, 
+    ];
+
+    db.query(q, [values], (err) => {
+        if (err) return res.json(err);
+
+        return res.status(200).json("Usuário criado")
+    })
+}
+
+export const updateUserm = (req, res) => {
+    const q =
+    "UPDATE mensalista SET `nome` = ?, `telefone` = ?, `cpf` = ?, `placa` = ? WHERE `id`= ?";
+
+    const values = [
+        req.body.nome,
+        req.body.telefone,
+        req.body.cpf,
+        req.body.placa, 
+    ];
+
+    db.query(q, [...values, req.params.id], (err) => {
+        if (err) return res.json(err);
+
+        return res.status(200).json("Atualizado")
+    })
+}
+
+
+export const deleteUserm = (req, res) => {
+    const q =
+    "DELETE FROM mensalista WHERE `id` = ?"
+
+    db.query(q, [req.params.id], (err) => {
+        if (err) return res.json(err);
+
+        return res.status(200).json("Deletado")
+    })
+}

@@ -18,7 +18,7 @@ const Painel = ({ users, setUsers, setOnEdit }) => {
 
   const handleDelete = async (id) => {
     await axios
-    .delete("http://localhost:8800/rapido/" + id)
+    .delete("http://localhost:8800/mensalista/" + id)
     .then(({data}) => {
       const newArray = users.filter((user) => user.id !== id)
 
@@ -46,6 +46,7 @@ const Painel = ({ users, setUsers, setOnEdit }) => {
               <tr key={i}>
                 <td className='p-4 text-center'>{item.nome}</td>
                 <td className='p-4 hidden text-center md:table-cell'>{item.telefone}</td>
+                <td className='p-4 text-center'>{item.cpf}</td>
                 <td className='p-4 text-center'>{item.placa}</td>
                 <div className='h-full flex-row justify-around w-full items-center hidden md:flex'>
                 <FaPen className='cursor-pointer mx-1' onClick={() => handleEdit(item)} />

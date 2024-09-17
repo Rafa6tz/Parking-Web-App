@@ -12,6 +12,7 @@ const Formulario = ({ getUsers, onEdit, setOnEdit }) => {
 
       user.nome.value = onEdit.nome;
       user.telefone.value = onEdit.telefone || "";
+      user.cpf.value = onEdit.cpf;
       user.placa.value = onEdit.placa;
     }
   }, [onEdit])
@@ -39,20 +40,26 @@ const Formulario = ({ getUsers, onEdit, setOnEdit }) => {
       payload.telefone = user.telefone.value;
     }
 
+    if (user.cpf.value) {
+      payload.cpf = user.cpf.value;
+    }
+
     if (onEdit) {
       await axios
-      .put("http://localhost:8800/rapido/" + onEdit.id, {
+      .put("http://localhost:8800/mensalista/" + onEdit.id, {
         nome: user.nome.value,
         telefone: user.telefone.value,
+        cpf: user.cpf.value,
         placa: user.placa.value,
       })
       .then(({ data }) => console.log(data))
       .catch(({ data }) => console.log(data))
     } else {
       await axios
-      .post("http://localhost:8800/rapido/", {
+      .post("http://localhost:8800/mensalista/", {
         nome: user.nome.value,
         telefone: user.telefone.value,
+        cpf: user.cpf.value,
         placa: user.placa.value,
     })
     .then(({ data }) => console.log(data))
@@ -61,6 +68,7 @@ const Formulario = ({ getUsers, onEdit, setOnEdit }) => {
 
       user.nome.value = "";
       user.telefone.value = "";
+      user.cpf.value = "";
       user.placa.value = "";
 
       setOnEdit(null)
@@ -73,6 +81,7 @@ const Formulario = ({ getUsers, onEdit, setOnEdit }) => {
         <div className='hidden md:block'>
         <Campo className='hidden md:block' texto="Telefone"/>
         </div>
+        <Campo texto="CPF"/>
         <Campo texto="Placa"/>
         <div className='flex items-center justify-center top-4'>
         <Botao/>
