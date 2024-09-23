@@ -12,12 +12,13 @@ export const getUsers = (_, res) => {
 
 export const addUser = (req, res) => {
     const q =
-    "INSERT INTO rapido(`nome`, `telefone`, `placa`) VALUES(?)";
+    "INSERT INTO rapido(`nome`, `telefone`, `placa`, `hora`) VALUES(?)";
 
     const values = [
         req.body.nome,
         req.body.telefone,
         req.body.placa, 
+        req.body.hora, 
     ];
 
     db.query(q, [values], (err) => {
@@ -29,12 +30,13 @@ export const addUser = (req, res) => {
 
 export const updateUser = (req, res) => {
     const q =
-    "UPDATE rapido SET `nome` = ?, `telefone` = ?, `placa` = ? WHERE `id`= ?";
+    "UPDATE rapido SET `nome` = ?, `telefone` = ?, `placa` = ?, `hora` = ? WHERE `id`= ?";
 
     const values = [
         req.body.nome,
         req.body.telefone,
         req.body.placa, 
+        req.body.hora, 
     ];
 
     db.query(q, [...values, req.params.id], (err) => {

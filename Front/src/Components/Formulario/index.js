@@ -28,7 +28,8 @@ const Formulario = ({ getUsers, onEdit, setOnEdit }) => {
     }
 
    const payload = {
-      placa: user.placa.value
+      placa: user.placa.value,
+      hora: new Date().toISOString().slice(0, 19).replace('T', ' '),
     };
 
     if (user.nome.value) {
@@ -45,6 +46,7 @@ const Formulario = ({ getUsers, onEdit, setOnEdit }) => {
         nome: user.nome.value,
         telefone: user.telefone.value,
         placa: user.placa.value,
+      hora: new Date().toISOString().slice(0, 19).replace('T', ' ')
       })
       .then(({ data }) => console.log(data))
       .catch(({ data }) => console.log(data))
@@ -54,7 +56,8 @@ const Formulario = ({ getUsers, onEdit, setOnEdit }) => {
         nome: user.nome.value,
         telefone: user.telefone.value,
         placa: user.placa.value,
-    })
+        hora: new Date().toISOString().slice(0, 19).replace('T', ' '),
+       })
     .then(({ data }) => console.log(data))
     .catch(({ data }) => console.log(data))
   }
